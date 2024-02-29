@@ -5,7 +5,7 @@ export const EDITORS = {
   macvim: 'mvim://open/?url=file://{path}&line={line}&column={column}',
   phpstorm: 'phpstorm://open?file={path}&line={line}&column={column}',
   webstorm: 'webstorm://open?file={path}&line={line}&column={column}',
-  idea: 'idea://open?file={path}&line={line}&column={column}',
+  idea: 'http://localhost:63342/api/file?file={path}&line={line}&column={column}',
   vscode: 'vscode://file/{path}:{line}:{column}',
   'vscode-insiders': 'vscode-insiders://file/{path}:{line}:{column}',
   atom: 'atom://core/open/file?filename={path}&line={line}&column={column}',

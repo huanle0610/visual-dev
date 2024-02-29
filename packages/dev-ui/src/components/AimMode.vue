@@ -72,7 +72,16 @@ const documentHandleClick = async (e: HTMLElementEventMap['click']) => {
     }
     const targetDomData = domMap.value.get(targetDom);
     if (targetDomData) {
-      const [absolutePath] = targetDomData.split('|');
+      const editor = globalData!.devConfig.editor;
+      let absolutePath;
+      if(editor == 'idea')
+      {
+        absolutePath = targetDomData.split('|')[1];
+      }
+      else
+      {
+        absolutePath = targetDomData.split('|')[0];
+      }
       const [srcPath, line, column] = absolutePath.split(':');
 
       // if (targetDom.parentElement && domMap.value.get(targetDom.parentElement)) {
@@ -89,7 +98,7 @@ const documentHandleClick = async (e: HTMLElementEventMap['click']) => {
       //   }
       // }
 
-      const url = launchEditor({ srcPath, line, column, editor: globalData!.devConfig.editor });
+      const url = launchEditor({ srcPath, line, column, editor });
       window.open(url);
     }
   } finally {
